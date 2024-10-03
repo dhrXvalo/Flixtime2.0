@@ -25,8 +25,8 @@
   <body>
     <nav>
         <ul>
-            <li><a href="#" class="active">Logo</a></li>
-            <li><a href="#">Films</a></li>
+            <li><a href="index.php" class="active">Logo</a></li>
+            <li><a href="films.php">Films</a></li>
             <li><a href="#">Series</a></li>
             <li><a href="#">Alle</a></li>
             <li><a href="#">Inlog</a></li>

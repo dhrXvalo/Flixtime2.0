@@ -17,6 +17,10 @@ body {
     }
 
     main {
+        .active {
+            font-weight: bolder;
+        }
+
         .horizontal {
             display: flex;
             flex-direction: column;
@@ -27,6 +31,19 @@ body {
                     border: 2px solid blue;
                     flex: 0 0 auto;
                     margin-right: 1vw;
+                }
+            }
+        }
+
+        .filterNav {
+            ul {
+                display: flex;
+                list-style-type: none;
+                li {
+                    margin: 1vh 1vw;
+                    a {
+                        text-decoration: none;
+                    }
                 }
             }
         }
