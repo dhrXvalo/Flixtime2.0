@@ -1,14 +1,13 @@
 <?php 
     require_once 'Functies/connection.php';
-    include_once 'Functies/Film.php';
+    include_once 'Functies/Serie.php';
 
-    $horror = horrorFilms();
-    $action = actionFilms();
-    $comedy = comedyFilms();
-    $romance = romanceFilms();
-    $sf = sfFilms();
+    $drama = dramaSeries();
+    $documentary = documentarySeries();
+    $fantasy = fantasySeries();
+    $thriller = thrillerSeries();
 
-    // print_r($action);
+    // print_r($docu);
 ?>
 
 <!DOCTYPE html>
@@ -27,8 +26,8 @@
     <nav>
         <ul>
             <li><a href="index.php">Logo</a></li>
-            <li><a href="films.php" class="active">Films</a></li>
-            <li><a href="series.php">Series</a></li>
+            <li><a href="films.php">Films</a></li>
+            <li><a href="series.php" class="active">Series</a></li>
             <li><a href="#">Alle</a></li>
             <li><a href="#">Inlog</a></li>
         </ul>
@@ -36,33 +35,32 @@
 
     <main>
         <div>
-            <iframe width="560" height="315" allow="autoplay" src="https://www.youtube.com/embed/8Yrbi4tGvIs?autoplay=1&mute=1"></iframe>
+            <iframe width="560" height="315" allow="autoplay" src="https://www.youtube.com/embed/HVC6RL3TyZI?autoplay=1&mute=1"></iframe>
         </div>
 
         <div class="filterNav">
             <ul id="tabNav">
                 <li><a href="#!">Alles</a></li>
-                <li><a href="#!">Horror</a></li>
-                <li><a href="#!">Action</a></li>
-                <li><a href="#!">Comedy</a></li>
-                <li><a href="#!">Romance</a></li>
-                <li><a href="#!">Science Fiction</a></li>
+                <li><a href="#!">Drama</a></li>
+                <li><a href="#!">Documentary</a></li>
+                <li><a href="#!">Fantasy</a></li>
+                <li><a href="#!">Thriller</a></li>
             </ul>
         </div>
 
         <div class="horizontal" id="filterTabs">
             <div>
-                <h3>Horror</h3>
+                <h3>Drama</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($horror as $horrorFilm) {
+                        foreach ($drama as $dramaFilm) {
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
                                     <img src="placeholder.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">' . $horrorFilm["titel"] . ' </h5>
-                                        <p class="card-text">' . $horrorFilm["beschrijving"] .'</p>
+                                        <h5 class="card-title">' . $dramaFilm["naam"] . ' </h5>
+                                        <p class="card-text">' . $dramaFilm["beschrijving"] .'</p>
                                         <a href="#" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
@@ -73,17 +71,17 @@
             </div>
             
             <div>
-                <h3>Action</h3>
+                <h3>Documentary</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($action as $actionFilm) {
+                        foreach ($documentary as $docuFilm) {
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
                                     <img src="placeholder.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">' . $actionFilm["titel"] . ' </h5>
-                                        <p class="card-text">' . $actionFilm["beschrijving"] .'</p>
+                                        <h5 class="card-title">' . $docuFilm["naam"] . ' </h5>
+                                        <p class="card-text">' . $docuFilm["beschrijving"] .'</p>
                                         <a href="#" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
@@ -94,17 +92,17 @@
             </div>
 
             <div>
-                <h3>Comedy</h3>
+                <h3>Fantasy</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($comedy as $comedyFilm) {
+                        foreach ($fantasy as $fantasyFilm) {
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
                                     <img src="placeholder.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">' . $comedyFilm["titel"] . ' </h5>
-                                        <p class="card-text">' . $comedyFilm["beschrijving"] .'</p>
+                                        <h5 class="card-title">' . $fantasyFilm["naam"] . ' </h5>
+                                        <p class="card-text">' . $fantasyFilm["beschrijving"] .'</p>
                                         <a href="#" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
@@ -115,38 +113,17 @@
             </div>
 
             <div>
-                <h3>Romance</h3>
+                <h3>Thriller</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($romance as $romanceFilm) {
+                        foreach ($thriller as $thrillerFilm) {
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
                                     <img src="placeholder.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">' . $romanceFilm["titel"] . ' </h5>
-                                        <p class="card-text">' . $romanceFilm["beschrijving"] .'</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>';
-                        }
-                    ?>
-                </div>
-            </div>
-
-            <div>
-                <h3>Science Fiction</h3>
-                <div class="boxes">
-                    <?php 
-                        foreach ($sf as $sfFilm) {
-                            echo '
-                            <div class="box">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="placeholder.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">' . $sfFilm["titel"] . ' </h5>
-                                        <p class="card-text">' . $sfFilm["beschrijving"] .'</p>
+                                        <h5 class="card-title">' . $thrillerFilm["naam"] . ' </h5>
+                                        <p class="card-text">' . $thrillerFilm["beschrijving"] .'</p>
                                         <a href="#" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
