@@ -3,6 +3,7 @@
     include_once 'Functies/Serie.php';
     include_once 'Functies/Film.php';
 
+    //weergave van films en series
     $horror = horrorFilms();
     $action = actionFilms();
     $comedy = comedyFilms();
@@ -13,7 +14,6 @@
     $fantasy = fantasySeries();
     $thriller = thrillerSeries();
 
-    // print_r($action);
 ?>
 
 <!DOCTYPE html>
@@ -31,18 +31,63 @@
   <body>
     <nav>
         <ul>
-            <li><a href="index.php" class="active">Logo</a></li>
+            <li><a href="index.php">Logo</a></li>
             <li><a href="films.php">Films</a></li>
             <li><a href="series.php">Series</a></li>
-            <li><a href="alles.php">Alle</a></li>
+            <li><a href="alles.php" class="active">Alle</a></li>
             <li><a href="#">Inlog</a></li>
         </ul>
     </nav>
 
     <main>
         <div>
-            <iframe width="560" height="315" allow="autoplay" src="https://www.youtube.com/embed/wE8s993ZV-8?autoplay=1&mute=1"></iframe>
+            <form action="alles.php" method="GET">
+                <input type="search" name="zoekterm" placeholder="Zoeken..." required>
+                <button type="submit">Zoek</button>
+            </form>
         </div>
+
+        <?php 
+            //zoekbalk functie
+
+            $db = connectDatabase();
+
+            if (isset($_GET['zoekterm'])) {
+                $zoekterm = $_GET['zoekterm'];
+
+                $zoekFilm = "SELECT titel AS titel, beschrijving FROM film WHERE titel LIKE '%$zoekterm%'";
+                $zoek_query = $db->query($zoekFilm);
+                $zoekFilm_result = $zoek_query->fetchall(PDO::FETCH_ASSOC);
+
+                $zoekSerie = "SELECT naam AS titel, beschrijving FROM serie WHERE naam LIKE '%$zoekterm%'";
+                $zoek_query = $db->query($zoekSerie);
+                $zoekSerie_result = $zoek_query->fetchall(PDO::FETCH_ASSOC);
+
+                $zoek_resultaat = array_merge($zoekFilm_result, $zoekSerie_result);
+                // print_r($zoek_resultaat);
+
+                ?>
+                <h3>Resultaten</h3>
+                <div class="searchBoxes">
+                    <?php
+                    foreach ($zoek_resultaat as $gevonden) {
+                        echo '
+                            <div class="searchBox">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">' . $gevonden["titel"] . ' </h5>
+                                        <p class="card-text">' . $gevonden["beschrijving"] .'</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </div>';
+                    }
+                    ?>
+                </div>
+            <?php
+            }
+        ?>
 
         <div class="horizontal">
             <h3>Horror</h3>
@@ -56,6 +101,25 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $horrorFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $horrorFilm["beschrijving"] .'</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>';
+                    }
+                ?>
+            </div>
+
+            <h3>Action</h3>
+            <div class="boxes">
+                <?php 
+                    foreach ($action as $actionFilm) {
+                        echo '
+                        <div class="box">
+                            <div class="card" style="width: 18rem;">
+                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">' . $actionFilm["titel"] . ' </h5>
+                                    <p class="card-text">' . $actionFilm["beschrijving"] .'</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -83,6 +147,25 @@
                 ?>
             </div>
 
+            <h3>Romance</h3>
+            <div class="boxes">
+                <?php 
+                    foreach ($romance as $romanceFilm) {
+                        echo '
+                        <div class="box">
+                            <div class="card" style="width: 18rem;">
+                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">' . $romanceFilm["titel"] . ' </h5>
+                                    <p class="card-text">' . $romanceFilm["beschrijving"] .'</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>';
+                    }
+                ?>
+            </div>
+
             <h3>Science Fiction</h3>
             <div class="boxes">
                 <?php 
@@ -94,6 +177,25 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $sfFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $sfFilm["beschrijving"] .'</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>';
+                    }
+                ?>
+            </div>
+
+            <h3>Drama</h3>
+            <div class="boxes">
+                <?php 
+                    foreach ($drama as $dramaFilm) {
+                        echo '
+                        <div class="box">
+                            <div class="card" style="width: 18rem;">
+                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">' . $dramaFilm["naam"] . ' </h5>
+                                    <p class="card-text">' . $dramaFilm["beschrijving"] .'</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -132,6 +234,25 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $fantasyFilm["naam"] . ' </h5>
                                     <p class="card-text">' . $fantasyFilm["beschrijving"] .'</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>';
+                    }
+                ?>
+            </div>
+
+            <h3>Thriller</h3>
+            <div class="boxes">
+                <?php 
+                    foreach ($thriller as $thrillerFilm) {
+                        echo '
+                        <div class="box">
+                            <div class="card" style="width: 18rem;">
+                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">' . $thrillerFilm["naam"] . ' </h5>
+                                    <p class="card-text">' . $thrillerFilm["beschrijving"] .'</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>

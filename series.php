@@ -28,7 +28,7 @@
             <li><a href="index.php">Logo</a></li>
             <li><a href="films.php">Films</a></li>
             <li><a href="series.php" class="active">Series</a></li>
-            <li><a href="#">Alle</a></li>
+            <li><a href="alles.php">Alle</a></li>
             <li><a href="#">Inlog</a></li>
         </ul>
     </nav>
