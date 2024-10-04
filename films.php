@@ -8,7 +8,7 @@
     $romance = romanceFilms();
     $sf = sfFilms();
 
-    // print_r($action);
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +30,17 @@
             <li><a href="films.php" class="active">Films</a></li>
             <li><a href="series.php">Series</a></li>
             <li><a href="alles.php">Alle</a></li>
-            <li><a href="#">Inlog</a></li>
+            <li><a href="login.php">Inlog</a></li>
+            <?php 
+                if (!empty($_SESSION) && $_SESSION['ingelogd']) {
+                    echo '
+                        <li>
+                            <form action="login.php" method="POST">
+                                <button type="submit" name="loguit">Log uit</button>
+                            </form>
+                        </li>';
+                }
+            ?>
         </ul>
     </nav>
 
