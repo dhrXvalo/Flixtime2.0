@@ -44,11 +44,11 @@
   <body>
     <nav>
         <ul>
-            <li><a href="index.php">Logo</a></li>
+            <li><a href="index.php">Flixtime</a></li>
             <li><a href="films.php">Films</a></li>
             <li><a href="series.php">Series</a></li>
             <li><a href="alles.php">Alle</a></li>
-            <li><a href="login.php" class="active">Inlog</a></li>
+            <li><a href="login.php" class="active">Login</a></li>
             <?php 
                 if (!empty($_SESSION) && $_SESSION['ingelogd']) {
                     echo '
@@ -69,7 +69,7 @@
             <span class="inputVeld">Wachtwoord<input type="password" name="wachtwoord"></span>
                 <button type="submit" name="login">Login</button>
             </form>
-            <a href="register.php">Registreren</a>
+            <div>New to Flixtime? <a href="register.php">Registreren</a></div>
         </div>
         
     </main>

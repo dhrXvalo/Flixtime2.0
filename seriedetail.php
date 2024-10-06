@@ -31,11 +31,11 @@
   <body>
     <nav>
         <ul>
-            <li><a href="index.php">Logo</a></li>
+            <li><a href="index.php">Flixtime</a></li>
             <li><a href="films.php">Films</a></li>
             <li><a href="series.php">Series</a></li>
             <li><a href="alles.php">Alle</a></li>
-            <li><a href="login.php">Inlog</a></li>
+            <li><a href="login.php">Login</a></li>
             <?php 
                 if (!empty($_SESSION) && $_SESSION['ingelogd']) {
                     echo '

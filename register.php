@@ -47,11 +47,11 @@
   <body>
     <nav>
         <ul>
-            <li><a href="index.php">Logo</a></li>
+            <li><a href="index.php">Flixtime</a></li>
             <li><a href="films.php">Films</a></li>
             <li><a href="series.php">Series</a></li>
             <li><a href="alles.php">Alle</a></li>
-            <li><a href="login.php" class="active">Inlog</a></li>
+            <li><a href="login.php" class="active">Login</a></li>
         </ul>
     </nav>
 
@@ -64,7 +64,7 @@
                 <span class="inputVeld">Gebruikersnaam<input type="text" name="gebruikersnaam" required></span>
                 <span class="inputVeld">Wachtwoord<input type="password" name="wachtwoord" required></span>
                 <button type="submit" name="registreer">Account aanmaken</button>
-                <a href="login.php">Terug naar login</a>
+                <div>Al een account? <a href="login.php">Terug naar login</a></div>
             </form>
         </div>
         

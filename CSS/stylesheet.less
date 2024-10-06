@@ -1,6 +1,5 @@
 body {
     .active {
-        color: limegreen;
         font-weight: bold;
     }
     nav {
@@ -14,39 +13,75 @@ body {
                 margin: 1vh 1vw;
                 a {
                     color: black;
+                    font-size: large;
                     text-decoration: none;
+                    &:hover {
+                        color: #d000cf;
+                    }
+                }
+                &:first-child {
+                    a {
+                        color: #7dff00;
+                        font-size: 5vh;
+                        &:hover {
+                            color: #d000cf;
+                        }
+                    }
                 }
             }
         }
     }
 
     main {
+        margin-left: 0.5vw;
+
         .active {
+            color: #d000cf;
             font-weight: bolder;
         }
 
         .horizontal {
             display: flex;
             flex-direction: column;
-            .boxes {
-                display: flex;
-                overflow-x: auto;
-                .box {
-                    border: 2px solid blue;
-                    flex: 0 0 auto;
-                    margin-right: 1vw;
+            .horiBox {
+                margin: 2vh 0;
+                .boxes {
+                    display: flex;
+                    overflow-x: auto;
+                    .box {
+                        border: 2px solid blue;
+                        flex: 0 0 auto;
+                        margin-right: 1vw;
+                        a {
+                            border: 2px solid #777777;
+                            color: white;
+                            background-color: #949494;
+                            padding: 0.5vh 0.5vw;
+                            text-decoration: none;
+                            i {
+                                margin-right: 0.5vw;
+                            }
+                        }
+                    }
                 }
             }
         }
 
         .filterNav {
+            margin: 2vh 0;
             ul {
                 display: flex;
                 list-style-type: none;
+                padding: 0;
                 li {
                     margin: 1vh 1vw;
                     a {
+                        color: #e300e2;
+                        font-size: large;
                         text-decoration: none;
+                        &:hover {
+                            font-size: 3vh;
+                        }
                     }
                 }
             }
@@ -63,6 +98,13 @@ body {
         }
 
         .login {
+            border: 2px solid blue;
+            display: flex;
+            flex-direction: column;
+            left: 35%;
+            padding: 2vw;
+            position: absolute;
+            top: 20%;
             width: 30%;
             form {
                 display: flex;
@@ -71,6 +113,9 @@ body {
                     display: flex;
                     flex-direction: column;
                     margin: 1vh 0;
+                }
+                button {
+                    margin: 3vh 0;
                 }
             }
         }
