@@ -66,11 +66,19 @@
             if (isset($_GET['zoekterm'])) {
                 $zoekterm = $_GET['zoekterm'];
 
-                $zoekFilm = "SELECT titel AS titel, beschrijving FROM film WHERE titel LIKE '%$zoekterm%'";
+                $zoekFilm = 
+                "SELECT film.titel AS titel, film.beschrijving, film.film_id AS id, categorie.naam AS categorie 
+                FROM film 
+                LEFT JOIN categorie ON categorie.categorie_id = film.categorie_id
+                WHERE titel LIKE '%$zoekterm%'";
                 $zoek_query = $db->query($zoekFilm);
                 $zoekFilm_result = $zoek_query->fetchall(PDO::FETCH_ASSOC);
 
-                $zoekSerie = "SELECT naam AS titel, beschrijving FROM serie WHERE naam LIKE '%$zoekterm%'";
+                $zoekSerie = 
+                "SELECT serie.naam AS titel, serie.beschrijving, serie.serie_id AS id , categorie.naam AS categorie
+                FROM serie 
+                LEFT JOIN categorie ON categorie.categorie_id = serie.categorie_id
+                WHERE serie.naam LIKE '%$zoekterm%'";
                 $zoek_query = $db->query($zoekSerie);
                 $zoekSerie_result = $zoek_query->fetchall(PDO::FETCH_ASSOC);
 
@@ -85,11 +93,11 @@
                         echo '
                             <div class="searchBox">
                                 <div class="card" style="width: 18rem;">
-                                    <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                    <img src="Images/'. $gevonden['categorie'] .'/'. $gevonden['id'] .'.webp" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $gevonden["titel"] . ' </h5>
                                         <p class="card-text">' . $gevonden["beschrijving"] .'</p>
-                                        <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
+                                        <a href="filmdetail.php?id='. $gevonden['id'] .' class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>';
@@ -108,7 +116,7 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Horror/'. $horrorFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $horrorFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $horrorFilm["beschrijving"] .'</p>
@@ -127,7 +135,7 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Action/'. $actionFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $actionFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $actionFilm["beschrijving"] .'</p>
@@ -146,11 +154,11 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Comedy/'. $comedyFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $comedyFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $comedyFilm["beschrijving"] .'</p>
-                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $comedyFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -165,11 +173,11 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Romance/'. $romanceFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $romanceFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $romanceFilm["beschrijving"] .'</p>
-                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $romanceFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -184,7 +192,7 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Sci-Fi/'. $sfFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $sfFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $sfFilm["beschrijving"] .'</p>
@@ -203,11 +211,11 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Drama/'. $dramaFilm['serie_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $dramaFilm["naam"] . ' </h5>
                                     <p class="card-text">' . $dramaFilm["beschrijving"] .'</p>
-                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $dramaFilm['serie_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -222,11 +230,11 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Documentary/'. $docuFilm['serie_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $docuFilm["naam"] . ' </h5>
                                     <p class="card-text">' . $docuFilm["beschrijving"] .'</p>
-                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $docuFilm['serie_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -241,11 +249,11 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Fantasy/'. $fantasyFilm['serie_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $fantasyFilm["naam"] . ' </h5>
                                     <p class="card-text">' . $fantasyFilm["beschrijving"] .'</p>
-                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $fantasyFilm['serie_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -260,11 +268,11 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Thriller/'. $thrillerFilm['serie_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $thrillerFilm["naam"] . ' </h5>
                                     <p class="card-text">' . $thrillerFilm["beschrijving"] .'</p>
-                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $thrillerFilm['serie_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';

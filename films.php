@@ -69,7 +69,7 @@
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
-                                    <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                    <img src="Images/Horror/'. $horrorFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $horrorFilm["titel"] . ' </h5>
                                         <p class="card-text">' . $horrorFilm["beschrijving"] .'</p>
@@ -90,7 +90,7 @@
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
-                                    <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                    <img src="Images/Action/'. $actionFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $actionFilm["titel"] . ' </h5>
                                         <p class="card-text">' . $actionFilm["beschrijving"] .'</p>
@@ -111,7 +111,7 @@
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
-                                    <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                    <img src="Images/Comedy/'. $comedyFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $comedyFilm["titel"] . ' </h5>
                                         <p class="card-text">' . $comedyFilm["beschrijving"] .'</p>
@@ -132,7 +132,7 @@
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
-                                    <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                    <img src="Images/Romance/'. $romanceFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $romanceFilm["titel"] . ' </h5>
                                         <p class="card-text">' . $romanceFilm["beschrijving"] .'</p>
@@ -153,7 +153,7 @@
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
-                                    <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                    <img src="Images/Sci-Fi/'. $sfFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $sfFilm["titel"] . ' </h5>
                                         <p class="card-text">' . $sfFilm["beschrijving"] .'</p>

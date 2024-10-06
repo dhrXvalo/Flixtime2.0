@@ -6,7 +6,7 @@
     $filmID = $_GET['id'];
     $db = connectDatabase();
 
-    $films = "SELECT * FROM film WHERE film_id = '". $filmID ."'";
+    $films = "SELECT * FROM film LEFT JOIN categorie ON categorie.categorie_id = film.categorie_id WHERE film_id = '". $filmID ."'";
     $film_query = $db->query($films);
     $film_result = $film_query->fetchall(PDO::FETCH_ASSOC);
 
@@ -48,22 +48,23 @@
 
     <main>
         <div class="detailLayout">
-            <img src="placeholder.jpg">
-            <div class="infoBox">
-                <?php 
-                    foreach ($film_result as $film) {
-                        echo '   
-                        <h3>'. $film['titel'] .'</h3>
-                        <div class="filmInfo">
-                            <p>'. $film['release_jaar'] .'</p>
-                            <p>'. $film['taal'] .'</p>
-                            <p>'. $film['duratie'] .'</p>
-                        </div>
-                        <h4>Beschrijving</h4>
-                        <p>'. $film['beschrijving'] .'</p>';
-                    }
-                ?>
-            </div>
+        <?php 
+            foreach ($film_result as $film) {
+                echo '
+                <img src="Images/'. $film['naam'] .'/'. $film['film_id'] .'.webp">
+                    <div class="infoBox">
+            
+                    <h3>'. $film['titel'] .'</h3>
+                    <div class="filmInfo">
+                        <p>'. $film['release_jaar'] .'</p>
+                        <p>'. $film['taal'] .'</p>
+                        <p>'. $film['duratie'] .'</p>
+                    </div>
+                    <h4>Beschrijving</h4>
+                    <p>'. $film['beschrijving'] .'</p>
+                </div>';        
+            }
+        ?>
         </div>
         
     </main>

@@ -5,7 +5,11 @@
     $serieID = $_GET['id'];
     $db = connectDatabase();
 
-    $series = "SELECT * FROM serie WHERE serie_id = '". $serieID ."'";
+    $series = 
+    "SELECT s.serie_id, s.naam, s.release_jaar, s.taal, s.afleveringen, s.beschrijving, c.naam AS categorie  
+    FROM serie AS s 
+    LEFT JOIN categorie AS c ON c.categorie_id = s.categorie_id
+    WHERE serie_id = '". $serieID ."'";
     $serie_query = $db->query($series);
     $serie_result = $serie_query->fetchall(PDO::FETCH_ASSOC);
 
@@ -47,11 +51,12 @@
 
     <main>
         <div class="detailLayout">
-            <img src="placeholder.jpg">
-            <div class="infoBox">
-                <?php 
-                    foreach ($serie_result as $serie) {
-                        echo '   
+        <?php 
+            foreach ($serie_result as $serie) {
+                // print_r($serie);
+                echo '
+                    <img src="Images/'. $serie['categorie'] .'/'. $serie['serie_id'] .'">
+                    <div class="infoBox">
                         <h3>'. $serie['naam'] .'</h3>
                         <div class="filmInfo">
                             <p>'. $serie['release_jaar'] .'</p>
@@ -59,10 +64,10 @@
                             <p>'. $serie['afleveringen'] .'</p>
                         </div>
                         <h4>Beschrijving</h4>
-                        <p>'. $serie['beschrijving'] .'</p>';
-                    }
-                ?>
-            </div>
+                        <p>'. $serie['beschrijving'] .'</p>
+                    </div>';
+            }
+        ?>    
         </div>
         
     </main>

@@ -62,7 +62,7 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Horror/'. $horrorFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $horrorFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $horrorFilm["beschrijving"] .'</p>
@@ -81,7 +81,7 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Comedy/'. $comedyFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $comedyFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $comedyFilm["beschrijving"] .'</p>
@@ -100,7 +100,7 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Sci-Fi/'. $sfFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $sfFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $sfFilm["beschrijving"] .'</p>
@@ -119,7 +119,7 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Documentary/'. $docuSerie['serie_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $docuSerie["naam"] . ' </h5>
                                     <p class="card-text">' . $docuSerie["beschrijving"] .'</p>
@@ -138,7 +138,7 @@
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
-                                <img src="placeholder.jpg" class="card-img-top" alt="...">
+                                <img src="Images/Fantasy/'. $fantasySerie['serie_id'] .'.webp" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">' . $fantasySerie["naam"] . ' </h5>
                                     <p class="card-text">' . $fantasySerie["beschrijving"] .'</p>
