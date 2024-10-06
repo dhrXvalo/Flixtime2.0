@@ -89,7 +89,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">' . $gevonden["titel"] . ' </h5>
                                         <p class="card-text">' . $gevonden["beschrijving"] .'</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>';
@@ -112,7 +112,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $horrorFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $horrorFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $horrorFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -131,7 +131,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $actionFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $actionFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $actionFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -150,7 +150,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $comedyFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $comedyFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -169,7 +169,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $romanceFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $romanceFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -188,7 +188,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $sfFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $sfFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -207,7 +207,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $dramaFilm["naam"] . ' </h5>
                                     <p class="card-text">' . $dramaFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -226,7 +226,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $docuFilm["naam"] . ' </h5>
                                     <p class="card-text">' . $docuFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -245,7 +245,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $fantasyFilm["naam"] . ' </h5>
                                     <p class="card-text">' . $fantasyFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -264,7 +264,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $thrillerFilm["naam"] . ' </h5>
                                     <p class="card-text">' . $thrillerFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .' class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';

@@ -3,15 +3,12 @@
     include_once 'Functies/Serie.php';
     include_once 'Functies/Film.php';
 
-    $horror = horrorFilms();
-    $action = actionFilms();
-    $comedy = comedyFilms();
-    $romance = romanceFilms();
-    $sf = sfFilms();
-    $drama = dramaSeries();
-    $documentary = documentarySeries();
-    $fantasy = fantasySeries();
-    $thriller = thrillerSeries();
+    $filmID = $_GET['id'];
+    $db = connectDatabase();
+
+    $films = "SELECT * FROM film WHERE film_id = '". $filmID ."'";
+    $film_query = $db->query($films);
+    $film_result = $film_query->fetchall(PDO::FETCH_ASSOC);
 
     session_start();
 ?>
@@ -31,7 +28,7 @@
   <body>
     <nav>
         <ul>
-            <li><a href="index.php" class="active">Logo</a></li>
+            <li><a href="index.php">Logo</a></li>
             <li><a href="films.php">Films</a></li>
             <li><a href="series.php">Series</a></li>
             <li><a href="alles.php">Alle</a></li>
@@ -53,8 +50,19 @@
         <div class="detailLayout">
             <img src="placeholder.jpg">
             <div class="infoBox">
-                <h3>Titel</h3>
-                <h3>Beschrijving</h3>
+                <?php 
+                    foreach ($film_result as $film) {
+                        echo '   
+                        <h3>'. $film['titel'] .'</h3>
+                        <div class="filmInfo">
+                            <p>'. $film['release_jaar'] .'</p>
+                            <p>'. $film['taal'] .'</p>
+                            <p>'. $film['duratie'] .'</p>
+                        </div>
+                        <h4>Beschrijving</h4>
+                        <p>'. $film['beschrijving'] .'</p>';
+                    }
+                ?>
             </div>
         </div>
         

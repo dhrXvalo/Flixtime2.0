@@ -66,7 +66,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $horrorFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $horrorFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $horrorFilm['film_id'] .'" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -85,7 +85,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $comedyFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $comedyFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $comedyFilm['film_id'] .'" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -104,7 +104,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">' . $sfFilm["titel"] . ' </h5>
                                     <p class="card-text">' . $sfFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="filmdetail.php?id='. $sfFilm['film_id'] .'" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -115,15 +115,15 @@
             <h3>Documentary</h3>
             <div class="boxes">
                 <?php 
-                    foreach ($documentary as $docuFilm) {
+                    foreach ($documentary as $docuSerie) {
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
                                 <img src="placeholder.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">' . $docuFilm["naam"] . ' </h5>
-                                    <p class="card-text">' . $docuFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title">' . $docuSerie["naam"] . ' </h5>
+                                    <p class="card-text">' . $docuSerie["beschrijving"] .'</p>
+                                    <a href="seriedetail.php?id='. $docuSerie['serie_id'] .'" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';
@@ -134,15 +134,15 @@
             <h3>Fantasy</h3>
             <div class="boxes">
                 <?php 
-                    foreach ($fantasy as $fantasyFilm) {
+                    foreach ($fantasy as $fantasySerie) {
                         echo '
                         <div class="box">
                             <div class="card" style="width: 18rem;">
                                 <img src="placeholder.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">' . $fantasyFilm["naam"] . ' </h5>
-                                    <p class="card-text">' . $fantasyFilm["beschrijving"] .'</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title">' . $fantasySerie["naam"] . ' </h5>
+                                    <p class="card-text">' . $fantasySerie["beschrijving"] .'</p>
+                                    <a href="seriedetail.php?id='. $fantasySerie['serie_id'] .'" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>';

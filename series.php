@@ -26,7 +26,7 @@
     <nav>
         <ul>
             <li><a href="index.php">Logo</a></li>
-            <li><a href="films.php">Films</a></li>
+            <li><a href="films.php">films</a></li>
             <li><a href="series.php" class="active">Series</a></li>
             <li><a href="alles.php">Alle</a></li>
             <li><a href="login.php">Inlog</a></li>
@@ -63,15 +63,15 @@
                 <h3>Drama</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($drama as $dramaFilm) {
+                        foreach ($drama as $dramaSerie) {
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
                                     <img src="placeholder.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">' . $dramaFilm["naam"] . ' </h5>
-                                        <p class="card-text">' . $dramaFilm["beschrijving"] .'</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <h5 class="card-title">' . $dramaSerie["naam"] . ' </h5>
+                                        <p class="card-text">' . $dramaSerie["beschrijving"] .'</p>
+                                        <a href="seriedetail.php?id='. $dramaSerie['serie_id'] .'" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>';
@@ -84,15 +84,15 @@
                 <h3>Documentary</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($documentary as $docuFilm) {
+                        foreach ($documentary as $docuSerie) {
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
                                     <img src="placeholder.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">' . $docuFilm["naam"] . ' </h5>
-                                        <p class="card-text">' . $docuFilm["beschrijving"] .'</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <h5 class="card-title">' . $docuSerie["naam"] . ' </h5>
+                                        <p class="card-text">' . $docuSerie["beschrijving"] .'</p>
+                                        <a href="seriedetail.php?id='. $docuSerie['serie_id'] .'" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>';
@@ -105,15 +105,15 @@
                 <h3>Fantasy</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($fantasy as $fantasyFilm) {
+                        foreach ($fantasy as $fantasySerie) {
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
                                     <img src="placeholder.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">' . $fantasyFilm["naam"] . ' </h5>
-                                        <p class="card-text">' . $fantasyFilm["beschrijving"] .'</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <h5 class="card-title">' . $fantasySerie["naam"] . ' </h5>
+                                        <p class="card-text">' . $fantasySerie["beschrijving"] .'</p>
+                                        <a href="seriedetail.php?id='. $fantasySerie['serie_id'] .'" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>';
@@ -126,15 +126,15 @@
                 <h3>Thriller</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($thriller as $thrillerFilm) {
+                        foreach ($thriller as $thrillerSerie) {
                             echo '
                             <div class="box">
                                 <div class="card" style="width: 18rem;">
                                     <img src="placeholder.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">' . $thrillerFilm["naam"] . ' </h5>
-                                        <p class="card-text">' . $thrillerFilm["beschrijving"] .'</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <h5 class="card-title">' . $thrillerSerie["naam"] . ' </h5>
+                                        <p class="card-text">' . $thrillerSerie["beschrijving"] .'</p>
+                                        <a href="seriedetail.php?id='. $thrillerSerie['serie_id'] .'" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>';
