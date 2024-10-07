@@ -13,6 +13,7 @@
     $serie_query = $db->query($series);
     $serie_result = $serie_query->fetchall(PDO::FETCH_ASSOC);
 
+    print_r($serie_result);
     session_start();
 ?>
 
@@ -55,7 +56,7 @@
             foreach ($serie_result as $serie) {
                 // print_r($serie);
                 echo '
-                    <img src="Images/'. $serie['categorie'] .'/'. $serie['serie_id'] .'">
+                    <img src="Images/'.$serie['categorie'].'/'.$serie['serie_id'].'.webp">
                     <div class="infoBox">
                         <h3>'. $serie['naam'] .'</h3>
                         <div class="filmInfo">

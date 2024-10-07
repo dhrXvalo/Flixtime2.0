@@ -46,9 +46,9 @@
     </nav>
 
     <main>
-        <div>
-            <iframe width="560" height="315" allow="autoplay" src="https://www.youtube.com/embed/8Yrbi4tGvIs?autoplay=1&mute=1"></iframe>
-        </div>
+        <video autoplay muted loop>
+            <source src="Images/Video/film.mp4" type="video/mp4">
+        </video>
 
         <div class="filterNav">
             <ul id="tabNav">

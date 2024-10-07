@@ -97,9 +97,17 @@
                                     <img src="Images/'. $gevonden['categorie'] .'/'. $gevonden['id'] .'.webp" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $gevonden["titel"] . ' </h5>
-                                        <p class="card-text">' . $gevonden["beschrijving"] .'</p>
-                                        <a href="filmdetail.php?id='. $gevonden['id'] .' class="btn btn-primary"><i class="fa-sharp fa-regular fa-circle-info"></i>More information</a>
-                                    </div>
+                                        <p class="card-text">' . $gevonden["beschrijving"] . '</p>';
+                                        
+                                        // Controleer of het een serie of film is en verander de link
+                                        if (($gevonden['categorie'] == "Drama") || ($gevonden['categorie'] == "Documentary") || ($gevonden['categorie'] == "Fantasy") || ($gevonden['categorie'] == "Thriller")) {
+                                            // Serie
+                                            echo '<a href="seriedetail.php?id=' . $gevonden['id'] . '" class="btn btn-primary"><i class="fa-sharp fa-regular fa-circle-info"></i> More information</a>'; 
+                                        } else {
+                                            // Film
+                                            echo '<a href="filmdetail.php?id=' . $gevonden['id'] . '" class="btn btn-primary"><i class="fa-sharp fa-regular fa-circle-info"></i> More information</a>';
+                                        }    
+                        echo '      </div>
                                 </div>
                             </div>';
                     }
@@ -194,7 +202,7 @@
                         foreach ($sf as $sfFilm) {
                             echo '
                                 <div class="card box" style="width: 18rem;">
-                                    <img src="Images/Sci-Fi/'. $sfFilm['film_id'] .'.webp" class="card-img-top" alt="...">
+                                    <img src="Images/Science_Fiction/'. $sfFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $sfFilm["titel"] . ' </h5>
                                         <p class="card-text">' . $sfFilm["beschrijving"] .'</p>

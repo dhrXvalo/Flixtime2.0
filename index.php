@@ -51,9 +51,9 @@
     </nav>
 
     <main>
-        <div class="beginVid">
-            <iframe width="560" height="315" allow="autoplay" src="https://www.youtube.com/embed/wE8s993ZV-8?autoplay=1&mute=1"></iframe>
-        </div>
+        <video autoplay muted loop>
+            <source src="Images/Video/homepage.mp4" type="video/mp4">
+        </video>
 
         <div class="horizontal">
             <div class="horiBox">
