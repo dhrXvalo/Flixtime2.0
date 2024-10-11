@@ -31,7 +31,6 @@
             <li><a href="films.php" class="active">Films</a></li>
             <li><a href="series.php">Series</a></li>
             <li><a href="alles.php">Alle</a></li>
-            <li><a href="login.php">Login</a></li>
             <?php 
                 if (!empty($_SESSION) && $_SESSION['ingelogd']) {
                     echo '
@@ -40,6 +39,10 @@
                                 <button type="submit" name="loguit">Log uit</button>
                             </form>
                         </li>';
+                } else {
+                    echo '
+                        <li><a href="login.php">Login</a></li>
+                    ';
                 }
             ?>
         </ul>
@@ -145,7 +148,7 @@
                         foreach ($sf as $sfFilm) {
                             echo '
                                 <div class="card box" style="width: 18rem;">
-                                    <img src="Images/Sci-Fi/'. $sfFilm['film_id'] .'.webp" class="card-img-top" alt="...">
+                                    <img src="Images/Science_Fiction/'. $sfFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $sfFilm["titel"] . ' </h5>
                                         <p class="card-text">' . $sfFilm["beschrijving"] .'</p>

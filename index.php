@@ -3,16 +3,6 @@
     include_once 'Functies/Serie.php';
     include_once 'Functies/Film.php';
 
-    $horror = horrorFilms();
-    $action = actionFilms();
-    $comedy = comedyFilms();
-    $romance = romanceFilms();
-    $sf = sfFilms();
-    $drama = dramaSeries();
-    $documentary = documentarySeries();
-    $fantasy = fantasySeries();
-    $thriller = thrillerSeries();
-
     session_start();
 ?>
 
@@ -36,7 +26,6 @@
             <li><a href="films.php">Films</a></li>
             <li><a href="series.php">Series</a></li>
             <li><a href="alles.php">Alle</a></li>
-            <li><a href="login.php">Login</a></li>
             <?php 
                 if (!empty($_SESSION) && $_SESSION['ingelogd']) {
                     echo '
@@ -45,6 +34,10 @@
                                 <button type="submit" name="loguit">Log uit</button>
                             </form>
                         </li>';
+                } else {
+                    echo '
+                        <li><a href="login.php">Login</a></li>
+                    ';
                 }
             ?>
         </ul>
@@ -60,7 +53,7 @@
                 <h3>Horror</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($horror as $horrorFilm) {
+                        foreach (Films('Horror') as $horrorFilm) {
                             echo '
                                 <div class="card box" style="width: 18rem;">
                                     <img src="Images/Horror/'. $horrorFilm['film_id'] .'.webp" class="card-img-top" alt="...">
@@ -79,7 +72,7 @@
                 <h3>Comedy</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($comedy as $comedyFilm) {
+                        foreach (Films('Comedy') as $comedyFilm) {
                             echo '
                                 <div class="card box" style="width: 18rem;">
                                     <img src="Images/Comedy/'. $comedyFilm['film_id'] .'.webp" class="card-img-top" alt="...">
@@ -98,10 +91,10 @@
                 <h3>Science Fiction</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($sf as $sfFilm) {
+                        foreach (Films('Science_Fiction') as $sfFilm) {
                             echo '
                                 <div class="card box" style="width: 18rem;">
-                                    <img src="Images/Sci-Fi/'. $sfFilm['film_id'] .'.webp" class="card-img-top" alt="...">
+                                    <img src="Images/Science_Fiction/'. $sfFilm['film_id'] .'.webp" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $sfFilm["titel"] . ' </h5>
                                         <p class="card-text">' . $sfFilm["beschrijving"] .'</p>
@@ -117,7 +110,7 @@
                 <h3>Documentary</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($documentary as $docuSerie) {
+                        foreach (Series('Documentary') as $docuSerie) {
                             echo '
                                 <div class="card box" style="width: 18rem;">
                                     <img src="Images/Documentary/'. $docuSerie['serie_id'] .'.webp" class="card-img-top" alt="...">
@@ -136,7 +129,7 @@
                 <h3>Fantasy</h3>
                 <div class="boxes">
                     <?php 
-                        foreach ($fantasy as $fantasySerie) {
+                        foreach (Series('Fantasy') as $fantasySerie) {
                             echo '
                                 <div class="card box" style="width: 18rem;">
                                     <img src="Images/Fantasy/'. $fantasySerie['serie_id'] .'.webp" class="card-img-top" alt="...">

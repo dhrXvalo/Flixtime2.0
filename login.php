@@ -48,7 +48,6 @@
             <li><a href="films.php">Films</a></li>
             <li><a href="series.php">Series</a></li>
             <li><a href="alles.php">Alle</a></li>
-            <li><a href="login.php" class="active">Login</a></li>
             <?php 
                 if (!empty($_SESSION) && $_SESSION['ingelogd']) {
                     echo '
@@ -57,6 +56,10 @@
                                 <button type="submit" name="loguit">Log uit</button>
                             </form>
                         </li>';
+                } else {
+                    echo '
+                        <li><a href="login.php">Login</a></li>
+                    ';
                 }
             ?>
         </ul>

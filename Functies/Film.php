@@ -1,6 +1,16 @@
 <?php
     require_once 'Functies/connection.php';
 
+    function Films($cat) {
+        $db = connectDatabase();
+
+        $films = "SELECT * FROM film LEFT JOIN categorie AS cat ON cat.categorie_id = film.categorie_id WHERE cat.naam = '$cat'";
+        $film_query = $db->query($films);
+        $film_result = $film_query->fetchall(PDO::FETCH_ASSOC);
+
+        return $film_result;
+    }
+
     function horrorFilms() {
         $db = connectDatabase();
 
